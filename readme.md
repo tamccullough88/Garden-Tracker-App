@@ -34,7 +34,7 @@ To set up and run the Garden Tracker App on your local machine, follow these ste
    ```
 
 5. **Access the App:**  
-   Open your web browser and go to `http://localhost:3000` to access the Garden Tracker App.
+  Follow on screen promts from the Metro bundler to run the app in its current state on your desired device.
 
 ## Contributing
 Contributions are welcome! If you have ideas for new features, bug fixes, or other improvements, feel free to submit a pull request. Please adhere to the project's coding conventions and follow the guidelines outlined in the CONTRIBUTING.md file.
