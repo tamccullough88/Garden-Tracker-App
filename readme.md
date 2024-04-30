@@ -1,14 +1,13 @@
 # Garden Tracker App
 
 ## Overview
-The Garden Tracker App is a tool designed to help users manage and track their gardening activities. Whether you're a seasoned gardener or just starting out, this app provides features to help you plan, organize, and monitor your garden's progress.
+The Garden Tracker App is currently under construction. It will be a tool designed to help users manage and track their gardening activities. Whether you're a seasoned gardener or just starting out, this app provides features to help you plan, organize, and monitor your garden's progress.
 
 ## Features
 - **Plant Inventory:** Keep a detailed list of plants you're growing, including information like species, variety, planting date, and location.
-- **Task Management:** Create and manage tasks related to your garden, such as watering schedules, fertilizing, and pruning.
 - **Garden Planning:** Plan your garden layout with a visual representation of beds, rows, and plant placements.
 - **Progress Tracking:** Monitor the growth and health of your plants over time with features for logging observations and recording harvests.
-- **Weather Integration:** Access weather forecasts to help you make informed decisions about watering and other garden tasks.
+
 
 ## Setup Instructions
 To set up and run the Garden Tracker App on your local machine, follow these steps:
