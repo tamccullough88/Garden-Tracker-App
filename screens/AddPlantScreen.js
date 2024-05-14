@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button } from 'react-native';
+import DatePicker from 'react-native-date-picker'
 
 const AddPlantScreen = ({ route, navigation }) => {
     const { gardenId } = route.params;
     const [plantName, setPlantName] = useState('');
-    const [datePlanted, setDatePlanted] = useState('');
-    const [xLocation, setXLocation] = useState('');
-    const [yLocation, setYLocation] = useState('');
+    const [date, setDate] = useState(new Date())
+
+
+    // const [xLocation, setXLocation] = useState('');
+    // const [yLocation, setYLocation] = useState('');
     const [comments, setComments] = useState('');
 
     const addPlant = () => {
@@ -17,9 +20,9 @@ const AddPlantScreen = ({ route, navigation }) => {
             },
             body: JSON.stringify({
                 name: plantName,
-                date_planted: datePlanted,
-                x: parseInt(xLocation),
-                y: parseInt(yLocation),
+                date_planted: date,
+                // x: parseInt(xLocation),
+                // y: parseInt(yLocation),
                 comments: comments,
             }),
         })
@@ -30,17 +33,16 @@ const AddPlantScreen = ({ route, navigation }) => {
 
     return (
         <View>
-            <TextInput
+            {/* <TextInput
                 placeholder="Plant Name"
                 value={plantName}
                 onChangeText={text => setPlantName(text)}
+            /> */}
+            <DatePicker
+                date={date}
+                onDateChange={setDate}
             />
-            <TextInput
-                placeholder="Date Planted"
-                value={datePlanted}
-                onChangeText={text => setDatePlanted(text)}
-            />
-            <TextInput
+            {/* <TextInput
                 placeholder="X Location"
                 value={xLocation}
                 onChangeText={text => setXLocation(text)}
@@ -51,13 +53,13 @@ const AddPlantScreen = ({ route, navigation }) => {
                 value={yLocation}
                 onChangeText={text => setYLocation(text)}
                 keyboardType="numeric"
-            />
-            <TextInput
+            /> */}
+            {/* <TextInput
                 placeholder="Comments"
                 value={comments}
                 onChangeText={text => setComments(text)}
                 multiline
-            />
+            /> */}
             <Button title="Add Plant" onPress={addPlant} />
         </View>
     );

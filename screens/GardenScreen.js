@@ -32,7 +32,7 @@ const GardenScreen = ({ route, navigation }) => {
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
       <View style={styles.container}>
         <Text>Plants in Garden:</Text>
-        <View style={styles.grid}>
+        {/* <View style={styles.grid}>
           {Array.from({ length: maxY + 1 }, (_, rowIndex) => (
             <View key={rowIndex} style={styles.row}>
               {Array.from({ length: maxX + 1 }, (_, colIndex) => {
@@ -48,21 +48,24 @@ const GardenScreen = ({ route, navigation }) => {
                   </View>
                 );
               })}
-            </View>
+            </View> 
           ))}
-        </View>
-        {/* Additional section to display details of each plant */}
+        </View>*/}
+        {/* Plants Section */}
         <View style={styles.plantList}>
           <Text style={styles.plantListTitle}>Plant Details:</Text>
+          <View style={styles.tableHeader}>
+            <Text style={styles.columnHeader}>Plant Name</Text>
+            <Text style={styles.columnHeader}>Date Planted</Text>
+          </View>
           {plants.map(plant => (
-            <View key={plant.plantId} style={styles.plantListItem}>
-              <TouchableOpacity
-                key={plant.plantId}
-                onPress={() => navigateToPlant(plant.plantId)}>
-                <Text style={styles.gardenName}>{plant.name}</Text>
-              </TouchableOpacity>
-              <Text>Date Planted: {plant.datePlanted}</Text>
-            </View>
+            <TouchableOpacity
+              key={plant.plantId}
+              onPress={() => navigateToPlant(plant.plantId)}
+              style={styles.tableRow}>
+              <Text style={styles.cellText}>{plant.name}</Text>
+              <Text style={styles.cellText}>{plant.datePlanted}</Text>
+            </TouchableOpacity>
           ))}
         </View>
         <Button
@@ -105,7 +108,9 @@ const styles = StyleSheet.create({
   plantList: {
     borderWidth: 1,
     borderColor: 'black',
-    padding: 10,
+    flexGrow: 1,
+    width: 300,
+    justifyContent: 'space-between',
   },
   plantListTitle: {
     fontWeight: 'bold',
@@ -113,6 +118,29 @@ const styles = StyleSheet.create({
   },
   plantListItem: {
     marginBottom: 5,
+
+
+  },
+
+  tableHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 5,
+  },
+  columnHeader: {
+    flex: 1,
+    fontWeight: 'bold',
+    fontSize: 16,
+    padding: 20,
+  },
+  tableRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 5,
+  },
+  cellText: {
+    flex: 1,
+    fontSize: 16,
   },
 });
 
