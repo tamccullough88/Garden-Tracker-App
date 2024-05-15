@@ -1,11 +1,29 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button } from 'react-native';
-import DatePicker from 'react-native-date-picker'
+import { Text, View, TextInput, Button } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const AddPlantScreen = ({ route, navigation }) => {
     const { gardenId } = route.params;
     const [plantName, setPlantName] = useState('');
-    const [date, setDate] = useState(new Date())
+    // const [date, setDate] = useState(new Date())
+    const [date, setDate] = useState(new Date());
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+
+    const onChange = (event, selectedDate) => {
+        const currentDate = selectedDate;
+        setShow(false);
+        setDate(currentDate);
+    };
+
+    const showMode = (currentMode) => {
+        setShow(true);
+        setMode(currentMode);
+    };
+
+    const showDatepicker = () => {
+        showMode('date');
+    };
 
 
     // const [xLocation, setXLocation] = useState('');
@@ -33,14 +51,26 @@ const AddPlantScreen = ({ route, navigation }) => {
 
     return (
         <View>
-            {/* <TextInput
+
+            <DateTimePicker
+                testID="dateTimePicker"
+                value={date}
+                mode="date"
+
+                onChange={onChange}
+                minimumDate={new Date(2010, 0, 1)}
+                onPress={showDatepicker}
+            />
+            <TextInput
                 placeholder="Plant Name"
                 value={plantName}
                 onChangeText={text => setPlantName(text)}
-            /> */}
-            <DatePicker
-                date={date}
-                onDateChange={setDate}
+            />
+            <TextInput
+                placeholder="Comments"
+                value={comments}
+                onChangeText={text => setComments(text)}
+                multiline
             />
             {/* <TextInput
                 placeholder="X Location"
@@ -54,12 +84,7 @@ const AddPlantScreen = ({ route, navigation }) => {
                 onChangeText={text => setYLocation(text)}
                 keyboardType="numeric"
             /> */}
-            {/* <TextInput
-                placeholder="Comments"
-                value={comments}
-                onChangeText={text => setComments(text)}
-                multiline
-            /> */}
+
             <Button title="Add Plant" onPress={addPlant} />
         </View>
     );

@@ -32,7 +32,7 @@ const HomeScreen = () => {
           onPress={() => navigateToGarden(garden.gardenId)}
           style={styles.gardenContainer}>
           <Text style={styles.gardenName}>{garden.name}</Text>
-        </TouchableOpacity> 
+        </TouchableOpacity>
       ))}
       <Button title="Create Garden" onPress={navigateToNewGarden} />
     </View>
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: 'center',
-        alignItems: 'center',
+    alignItems: 'center',
   },
   title: {
     fontSize: 20,
